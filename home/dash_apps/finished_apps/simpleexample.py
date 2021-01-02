@@ -26,6 +26,7 @@ app.layout = html.Div([
 @app.callback(
                Output('slider-graph', 'figure'),
               [Input('slider-updatemode', 'value')])
+
 def display_value(value):
 
 
@@ -51,3 +52,5 @@ def display_value(value):
 
     )
     return {'data': [graph], 'layout': layout}
+
+
