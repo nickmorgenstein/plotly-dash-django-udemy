@@ -15,7 +15,7 @@ from plotly.subplots import make_subplots
 
 df = pd.read_csv('/Users/nickmorgenstein/Desktop/rando code/CouloirAnalysis/plotly-dash-django-udemy/home/cleanest_addedrows.csv', low_memory=False)
 
-"""def home(request):
+"""def about(request):
     def scatter():
         x1 = [1,2,3,4]
         y1 = [30, 35, 25, 45]
@@ -44,7 +44,7 @@ def home(request):
         'plot1': completePie()
     }
 
-    return render(request, 'home/welcome.html', context)
+    return render(request, 'about/welcome.html', context)
 
 
 Asian = ['Ethnicity Asian', 'Ethnicity East Asian',
@@ -76,7 +76,7 @@ def printPie(names, values):
 
     names = pd.Series(names, dtype='object')
     values = pd.Series(values)
-    fig = px.pie(df, names=names, values=values, title="Population Breakdown by Ethnicity")
+    fig = px.pie(df, names=names, values=values, title="Population Breakdown by Ethnicity",  width=800, height=400)
     fig.show()
 
 
@@ -113,9 +113,11 @@ def completePie():
 
     fig = make_subplots(rows=1, cols=2, specs=[[{'type':'domain'}, {'type':'domain'}]])
 
-    fig.add_trace(go.Pie(labels=nameList, values=valuelist, title="Population Breakdown by Ethnicity"), 1, 1)
+    fig.add_trace(go.Pie(labels=nameList, values=valuelist, title="Population Breakdown by Ethnicity"), 1, 1, )
     fig.add_trace(go.Pie(labels=nameList, values=yes_count, title="ID Proportions by Ethnicity"), 1, 2)
 
     plot_div = plot(fig, output_type='div', include_plotlyjs=False)
+
+
     return plot_div
 
